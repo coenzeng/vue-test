@@ -6,11 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LESSON-2</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        .box{
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+        li.fav{
+            background-color: beige;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello</h1>
     <div id="app">
-        <h3 v-if="showBooks">{{ title }} - {{ author }} - {{ age }}</h3>
+
+        <!--attribute binding-->
+        <a v-bind:href="url">best website ever</a>
+        <h3 v-if="showBooks">
+            <ul>
+                <li @click="toggleFav(book)" v-for="book in books" :class="{ fav: book.isFav }">
+                    <h3> {{book.title }} </h3>
+                    <p> {{ book.author }}</p>
+<!--                     <button @click="toggleFav(book)">
+                        <span v-if="!book.isFav">Favourite</span>
+                        <span v-if="book.isFav">unFavourite</span>
+                    </button> -->
+                </li>
+            </ul>
+            <ul>
+                <!--Favourite Books only-->
+                <li @click="toggleFav(book)" v-for="book in filteredBooks" :class="{ fav: book.isFav }">
+                    <h3> {{book.title }} </h3>
+                    <p> {{ book.author }}</p>
+<!--                     <button @click="toggleFav(book)">
+                        <span v-if="!book.isFav">Favourite</span>
+                        <span v-if="book.isFav">unFavourite</span>
+                    </button> -->
+                </li>
+            </ul>
+        </h3>
 
         <button @click="age++">Increase Age</button>
         <button @click="age--">Decrease Age</button>
@@ -19,6 +57,14 @@
             <span v-if="showBooks">Hide Books</span>
             <span v-if="!showBooks">Show Books</span>
         </button>
+        <br>
+        <!-- mouse events-->
+        <!--
+        <div class="box" @mouseover="handleEve">mouseover</div> basically a hover
+        <div class="box" @mouseleave="handleEve">mouseleave</div>
+        <div class="box" @dblclick="handleEve">double click</div>
+        <div class="box" @mousemove="handleMousemove">position: {{ x }}, {{ y }}</div>
+            -->
     </div>
     <script src="app.js"></script>
 </body>
