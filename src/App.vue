@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     start(){
-      this.delay = 2000 + Math.random() * 5000 //least: 2000, most: 7000
+      this.delay = 1000 + Math.random() * 2000 //random is between 0 and 1
       this.isPlaying = true
     }
   }

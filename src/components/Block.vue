@@ -1,12 +1,31 @@
 <template>
-  <div class='block'>
+  <div class='block' v-if="showBlock">
       click me
   </div>
 </template>
 
 <script>
 export default {
-    props: ['delay']
+    props: ['delay'],
+    data(){
+        return{
+            showBlock: false,
+        }
+    },
+    mounted(){ //once the play button is pressed
+    
+        setTimeout(() => {
+            this.showBlock = true
+        }, this.delay) //fire this function after delay
+    },
+
+    updated(){ //once the block shows and is updated
+        console.log("updated")
+    },
+
+    unmounted(){ //when the block is gone (won't happen)
+        console.log('unmounted')
+    }
 }
 </script>
 
