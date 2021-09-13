@@ -1,0 +1,11 @@
+{
+    "jobs": [
+        {"title": "Ninja UX Designer", "id": 1, "details": "lorem100" },
+        {"title": "Ninja UZ Designer", "id": 2, "details": "lorem100" },
+        {"title": "Ninja UY Designer", "id": 3, "details": "lorem100" }
+    ],
+
+    "blogs": []
+
+
+}

@@ -16,12 +16,14 @@
 export default {
   data(){
     return {
-      jobs : [
-        {title: "bro", id: 1},
-        {title: "bro1", id: 2},
-        {title: "bro2", id: 3},
-      ]
+      jobs : []
     }
+  },
+  mounted() {
+    fetch('http://localhost:3000/jobs')
+    .then((res) => res.json())
+    .then(data => this.jobs = data)
+    .catch(err => console.log(err.message))
   }
 }
 </script>

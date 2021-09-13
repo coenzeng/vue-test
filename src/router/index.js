@@ -26,12 +26,13 @@ const routes = [
     redirect: '/about'
   },
   //404 page
+  /*
   {
     path: "/:catchAll(.*)",
     name: "NotFound",
     component:NotFound,
   }
-
+*/
 ]
 
 const router = createRouter({
