@@ -3,9 +3,28 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
+
+  <div id="nav">
+    <div v-for="job in jobs" :key="job.id">
+      <router-link :to="{ name: 'JobDetails' , params: { id: job.id }}"> {{ job.title }}</router-link>
+    </div>
+  </div>
   <router-view/>
 </template>
 
+<script>
+export default {
+  data(){
+    return {
+      jobs : [
+        {title: "bro", id: 1},
+        {title: "bro1", id: 2},
+        {title: "bro2", id: 3},
+      ]
+    }
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
