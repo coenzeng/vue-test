@@ -11,7 +11,8 @@ export default {
         return{
             showBlock: false,
             timer: null,
-            reactionTime: 0
+            reactionTime: 0,
+            
         }
     },
     mounted(){ //once the play button is pressed
@@ -39,6 +40,8 @@ export default {
         stopTimer(){//called when user clicks on Block
             clearInterval(this.reactionTime) //stores the value at the point of clicking
             console.log(this.reactionTime)
+            this.$emit('end', this.reactionTime)//send data back to parent component
+            //this.reactionTime is passed in as a parameter
         }
     }
 }
