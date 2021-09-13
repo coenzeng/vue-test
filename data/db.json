@@ -1,0 +1,17 @@
+{"bro": [
+  {
+    "title": "Super hero squad",
+    "homeTown": "Metro City",
+    "id": 2016,
+    "body": "Super tower",
+    "active": true
+  },
+  {
+    "title": "bro",
+    "homeTown": "Metro City",
+    "id": 2017,
+    "body": "Greenville",
+    "active": true
+  }
+]
+}
