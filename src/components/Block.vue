@@ -1,5 +1,5 @@
 <template>
-  <div class='block' v-if="showBlock">
+  <div class='block' v-if="showBlock" @click="stopTimer">
       click me
   </div>
 </template>
@@ -10,12 +10,15 @@ export default {
     data(){
         return{
             showBlock: false,
+            timer: null,
+            reactionTime: 0
         }
     },
     mounted(){ //once the play button is pressed
     
         setTimeout(() => {
             this.showBlock = true
+            this.startTimer()
         }, this.delay) //fire this function after delay
     },
 
@@ -25,6 +28,18 @@ export default {
 
     unmounted(){ //when the block is gone (won't happen)
         console.log('unmounted')
+    },
+
+    methods: {
+        startTimer(){//reactionTime goes up in increments of 10 milliseconds
+            this.timer = setInterval(() => {
+                this.reactionTime += 10
+            }, 10)
+        },
+        stopTimer(){//called when user clicks on Block
+            clearInterval(this.reactionTime) //stores the value at the point of clicking
+            console.log(this.reactionTime)
+        }
     }
 }
 </script>
